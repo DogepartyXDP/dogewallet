@@ -1,0 +1,2 @@
+# dogewallet
+Dogeparty web wallet
