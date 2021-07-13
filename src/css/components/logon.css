@@ -1,0 +1,132 @@
+/* 
+ * Logon page specific
+ */
+#logon {
+  padding-top: 120px;
+  background: white; 
+  width:      100%;
+  height:     100%;
+  overflow: auto;
+}
+
+.sales-title {
+  text-align: center;
+  margin: 0px;
+}
+
+#form-well {
+    max-width: 650px;
+    margin: 0 auto;
+    padding-bottom: 0px;
+}
+
+#password, #passwordDecrypt, #cryptedPassphrase {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+#generated {
+  width: 85%;
+  display: inline-block;
+  padding: 6px 5px;
+  border: 1px solid #AAA;
+}
+
+#generated-regenerate {
+  width: 13%;
+}
+
+#form-well .btn-success {
+  min-width: 250px;
+}
+
+#walletLoginButton {
+  min-width: 70%;
+}
+
+#secureKeyboardButton {
+  width: 25%;
+}
+
+#extra-info {
+  background-color:#EEE;
+  border:1px solid #CCC;
+  margin-top: 80px;
+  padding-top: 20px;  
+}
+
+div#logon h1 {
+  font-size: 3em;
+  text-align: center;
+}
+
+div#logon h2 {
+  font-size: 2em;
+  text-align: center;
+  padding-bottom: 5px;
+  color: #333;
+}
+
+div#logon div#form-well {
+  margin-top:40px;
+}
+
+#newWalletButton {
+  font-size: 21px;
+}
+
+#createNewAcctBtnPane {
+  text-align:center;
+  display:block;
+  margin-bottom: 35px;
+}
+
+p.createWalletHeaderText {
+  /*font-weight:bold;*/
+  font-size:1.1em;
+}
+
+p.logonWarningLine1 {
+  font-weight:bold;
+  text-align:center;
+  font-size:1.3em;
+}
+
+p.logonWarningOtherLines {
+  font-weight:bold;
+  text-decoration:underline;
+  text-align:center;
+  font-size:1.15em;
+}
+
+#extra-info div.row {
+  margin-top:25px;
+  margin-bottom:20px;
+}
+
+.ui-keyboard-accept {
+  color: #3c763d !important;
+  background-color: #dff0d8 !important;
+  border-color: #d6e9c6 !important;
+}
+
+.ui-autocomplete {
+  z-index: 1400 !important;
+}
+
+#licenseAgreementText {
+  width: 95%;
+  margin: 0 auto;
+}
+
+/* disable animations for the login progress bar
+ * ..if we don't do this, the login progress bar won't work correctly, due to the animations taking
+ * time and no correctly playing 
+ */
+#loginProgressBar {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+}​

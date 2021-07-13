@@ -1,0 +1,126 @@
+
+button#createNewAddress { margin: 12px; }
+
+section.balancesContainer div[role=content] { padding: 5px; }
+/*section.balancesContainer div.popover { min-width: 300px; }*/
+
+span.addressLabelText {
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+textarea.armoryUTxTextarea {
+    font-size: 10px !important;
+    font-weight: normal !important;
+}
+
+div#showAssetInfoModal table {
+  width:95%;
+  margin: 0 auto;
+  border: 1px solid #ddd !important;
+}
+
+div#showAssetInfoModal table tbody {
+  max-height: 500px;
+  overflow: scroll;
+}
+
+#sendAmountLabel {
+  width: 80%;
+  display: inline-block;
+}
+
+.asset-item {
+  position: relative;
+  float: left;
+  min-width: 100px;
+  max-width: 95%;
+  height: 100px;
+  margin: 5px;
+  padding: 12px 53px 8px 8px;
+  border-style:solid;
+  border-width: 1px;
+  border-radius: 3px;
+
+}
+
+.asset-item div.btn-group {
+  position:absolute !important;
+  top:11px;
+  right:15px;
+
+}
+
+.asset-item div.btn-group button {
+  z-index: 2 !important;
+}
+
+.asset-item div.btn-group .dropdown-menu {
+  z-index: 3 !important;
+}
+
+.asset-item h3 {
+  position: relative;
+  top:-10px;
+  z-index: 1 !important;
+}
+
+.asset-item > * {
+  margin: 0;
+  padding: 0;
+}
+
+.asset-item .name {
+  font-size: 38px;
+  font-weight: bold;
+  color: white;
+}
+
+.asset-item .name-subasset {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  word-wrap: break-word;
+}
+
+.asset-item .balance {
+  position: relative;
+  /*bottom: -5px;*/
+  letter-spacing: 0;
+  font-size: 15px;
+  font-weight: bold;
+
+  bottom: 12px;
+  line-height: 18px;
+}
+
+.asset-item button.dropdown-toggle {
+  border-radius: 4px;
+}
+
+.asset-item div.btn-group {
+  float: right;
+  width: 30px;
+  height: 32px;
+  line-height: 32px;
+  position: relative;
+  margin-left: 10px;
+  margin-top: 2px;
+}
+
+.asset-item.doge          { color: #a94442; background-color: #ebccd1; border-color: #c4aaaf; }
+.asset-item.xdp          { color: #3c763d; background-color: #d6e9c6; border-color: #b2c2a5; }
+.asset-item.myasset     { color: #8a6d3b; background-color: #f4dbab; border-color: #cfb991; }
+.asset-item.othersasset { color: #31708f; background-color: #bce8f1; border-color: #9fc4cc; }
+
+.asset-item.dispenser    { color: #EB8BFC; background-color: #4C067B; border-color: #62089F; }
+
+
+.balancesAssetIcons {
+  position:absolute;bottom:2px;right:10px
+}
+
+.balancesAssetIcon {
+  float:right;
+  padding-left:5px;
+}

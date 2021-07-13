@@ -1,0 +1,559 @@
+/* OVERRIDES/ENHANCEMENTS TO smartadmin STYLING */
+
+/*
+ * FORM STYLING OVERRIDES (we have to redo these because we do forms a bit
+ * differently than SmartAdmin does, due to our use of knockout)
+ */
+.smart-form span.invalid {
+    display: block;
+    margin-top: 6px;
+    padding: 0 1px;
+    font-style: normal;
+    font-size: 11px;
+    line-height: 15px;
+    color: #D56161;
+}
+
+.smart-form input.invalid {
+    background: #fff0f0;
+    border-color: #A90329;
+}
+
+.smart-form input[readonly="readonly"], .smart-form input[disabled="disabled"] {
+    background: #eee;
+}
+.smart-form textarea[disabled="disabled"], .smart-form textarea[disabled="disabled"] {
+    background: #eee;
+}
+
+p.formPadded, div.formPadded {
+    margin: 15px 10px;
+}
+
+p.formPaddedBot, div.formPaddedBot {
+    margin: 0 10px 15px 10px;
+}
+
+.smart-form fieldset {
+    padding-top: 15px; /* reduce a bit */
+}
+
+/*
+ * LOGO AND ACTIVITY LOG INTERFACE MODIFICATIONS
+ */
+span.logoText {
+    font-size: 1.6em;
+    color: white;
+
+}
+
+#logo img { /* need to use !important here because the google skin has its own logo img style that borks things up */
+    width: auto !important;
+    height: auto !important;
+    position: relative !important;
+    /*bottom: 8px !important;  */
+    vertical-align: middle !important;
+}
+
+#logo {
+    width: auto  !important; /* + 20px */
+    /*margin-top: 13px !important;*/
+    height: 49px !important;
+    line-height: 49px !important;
+    margin: 0 !important;
+    background: url(../images/logo-small.png) no-repeat 10px 8px;
+    padding-left: 65px;
+}
+#logo span.logoText {
+
+    height: 49px !important;
+    line-height: 49px !important;
+    display: inline-block !important;
+    margin: 0 !important;
+}
+
+/* Make Dogewallet word invisible in black top bar for low resolution */
+@media only screen and (max-width : 665px) {
+  #logo span.logoText {
+    display: none !important;
+  }
+
+  #logo img {
+    /*bottom:5px !important;*/
+  }
+
+  #logo-group {
+    width: auto !important;
+  }
+
+}
+
+/* Fix notification windows "nipples" */
+.ajax-dropdown:after,
+.ajax-dropdown:before {
+  left: 165px !important;
+}
+
+@media only screen and (max-width : 479px) {
+  .ajax-dropdown:after,
+  .ajax-dropdown:before {
+    left: 34px !important;
+  }
+}
+
+@media only screen and (min-width : 480px) and (max-width : 665px) {
+  .ajax-dropdown:after,
+  .ajax-dropdown:before {
+    left: 28px !important;
+  }
+}
+
+#wid-id-orderInputSelection label {
+  display: block !important;
+}
+
+
+#logo-group span#activity {
+    position:relative;
+    left: 20px; /* + 20px */
+}
+#header>:first-child {
+    width: 400px; /* + 160px */
+}
+.smart-style-0 #header span.logoText { /* override for a specific style */
+    color: black;
+}
+.page-title {
+    margin-top: 0px;
+}
+
+#logo-group span.activity-parent { /* custom style */
+  margin-left: 10px;
+}
+#logo-group span.activity-dropdown {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  cursor: default !important;
+  display: inline-block;
+  font-weight: bold;
+  height: 24px;
+  width: 24px;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none !important;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  background-color: #f8f8f8;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f1f1f1));
+  background-image: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+  background-image: -moz-linear-gradient(top, #f8f8f8, #f1f1f1);
+  background-image: -ms-linear-gradient(top, #f8f8f8, #f1f1f1);
+  background-image: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
+  background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
+  border: 1px solid #bfbfbf;
+  color: #c4bab6;
+  font-size: 19px;
+  margin: 10px 0 0 0;
+  position: relative;
+}
+#logo-group span.activity-dropdown:hover {
+  border: 1px solid #bfbfbf;
+  transition: all 0.0s;
+  cursor: pointer !important;
+  -webkit-box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.08);
+}
+
+#notificationFeed .ajax-dropdown {
+    left: 61px;
+}
+#pendingActionFeed .ajax-dropdown {
+    left: 101px;
+}
+#openOrderFeed .ajax-dropdown {
+    left: 141px;
+}
+#dogePayFeed .ajax-dropdown {
+    left: 181px;
+}
+
+
+/* LEFT AND CONTENT PANEL INTERFACE MODIFICATIONS
+ * (the goal is to make the interface a bit more compact)
+ */
+.smart-style-2 #left-panel {
+    padding: 15px 5px;
+}
+
+.fixed-ribbon #content {
+    padding-top: 10px;
+}
+
+
+/*
+ * Tone down some of the annoying SmartAdmin animation styles
+ */
+.active+.ajax-dropdown {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  -o-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: .4s;
+  -moz-animation-duration: .4s;
+  -o-animation-duration: .4s;
+  animation-duration: .4s;
+}
+
+.open>.dropdown-menu {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  -o-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+
+/*
+ * STYLE SPECIFIC OVERRIDES
+ */
+
+/* change dark elegance menu item padding so things fit on one line */
+.smart-style-1 nav ul li a {
+    padding: 12px 12px 12px 12px;
+}
+
+
+/* Set default widget header color based on the chosen theme */
+body.smart-style-0 .jarviswidget>header { /* simple grey = golden (yellow) pane */
+    background: #B09B5B;
+    color: #FFF;
+}
+body.smart-style-1 .jarviswidget>header { /* dark elegance = lightRed pane */
+    background: #A65858;
+    color: #FFF;
+}
+body.smart-style-2 .jarviswidget>header { /* ultra light = lightBlue pane */
+    background: #CCDADF;
+    color: #2b363c;
+}
+body.smart-style-3 .jarviswidget>header { /* google skin = darkBlue (night sky) pane */
+    background: #4C4F53;
+    color: #FFF;
+}
+
+/* override widget colors (necessary because we override default widget bar color on a per theme basis) */
+.jarviswidget-color-magenta > header {
+  background: #6E3671 !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-pink > header {
+  background: #AC5287 !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-pinkDark > header {
+  background: #A8829F !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-yellow > header {
+  background: #B09B5B !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-orange > header {
+  background: #C79121 !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-orangeDark > header {
+  background: #A57225 !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-darken > header {
+  background: #404040 !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-purple > header {
+  background: #65596B !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-teal > header {
+  background: #568A89 !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-blueDark > header {
+  background: #4C4F53 !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-blue > header {
+  background: #60747C !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-blueLight > header {
+  background: #CCDADF !important;
+  color: #2b363c !important;
+}
+.jarviswidget-color-red > header {
+  background: #931313 !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-redLight > header {
+  background: #A65858 !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-white > header {
+  background: #fff !important;
+  color: #838383 !important;
+}
+.jarviswidget-color-greenDark > header {
+  background: #496949 !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-green > header {
+  background: #356E35 !important;
+  color: #FFF !important;
+}
+.jarviswidget-color-greenLight > header {
+  background: #71843F !important;
+  color: #FFF !important;
+}
+
+
+/* Action buttons under the heading for low resolution. */
+@media only screen and (max-width : 860px) {
+  div.pull-right.sectionHeaderButtonBar {
+    clear: both !important;
+    float: left !important;
+    padding: 0 0 14px 14px !important;
+  }
+}
+/* otherwise just pad it off the right of the screen a bit */
+@media only screen and (min-width : 861px) {
+  div.pull-right.sectionHeaderButtonBar {
+      margin-right: 15px;
+  }
+}
+
+/* Fix widget header height for low resolution */
+section.balancesContainer .jarviswidget>header,
+section.ordersGrid .jarviswidget>header {
+  height: auto !important;
+}
+
+/* Using toggle menu button also for munified menu */
+.minified #hide-menu {
+  display: block !important;
+}
+
+.minified #hide-menu>:first-child>a,
+.hidden-menu #hide-menu>:first-child>a {
+  background-color: #e8e8e8;
+  background-image: -moz-linear-gradient(top,#5a5a5a 0,#686868 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#5a5a5a),color-stop(100%,#686868));
+  background-image: -webkit-linear-gradient(to bottom,#5a5a5a 0,#686868 100%);
+  background-image: -o-linear-gradient(to bottom,#5a5a5a 0,#686868 100%);
+  background-image: -ms-linear-gradient(to bottom,#5a5a5a 0,#686868 100%);
+  background-image: linear-gradient(to bottom,#5a5a5a 0,#686868 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5A5A5A', endColorstr='#686868', GradientType=0);
+  -webkit-box-shadow: inset 0 0 3px 1px rgba(0,0,0,.15);
+  box-shadow: inset 0 0 3px 1px rgba(0,0,0,.15);
+  color: #fff !important;
+  border-color: #494949;
+}
+
+.minified #hide-menu i,
+.hidden-menu #hide-menu i {
+  color: #fff !important;
+}
+
+#left-panel {
+  z-index:1003 !important;
+}
+#header {
+  z-index:1004 !important;
+}
+
+#header > div.pull-right {
+  position: absolute;
+  right: 0;
+  top:0;
+}
+
+b.notoAddrColor > a {
+  display: inline !important;
+}
+/*
+ * CSS SMARTADMIN BUG FIXES
+ */
+/* this fixes the success box (Confirm & Place Order) on the last page of the Buy/Sell pane so that it displays correctly */
+.btn-success {
+    background-color: #739e73 !important;
+}
+#sparks li h5 {
+    margin: 0 !important;
+}
+
+#walletCountStats #sparks li h5 span {
+    display:inline;
+    font-size:11px;
+    text-transform: uppercase;
+}
+
+#walletCountStats #sparks li h5 span.wallets_count {
+  font-size: 18px;
+  display: block;
+}
+
+/*
+ * JARVIS WIDGET OVERRIDES
+ */
+/* with this, do not use h2 for widget header text, as jarvis widget .js source will use that as a selector to save the
+ * widget header title into localstorage, which we do NOT want (as it messes with our saved address headers, headers
+ * that use knockout, etc). So copy their h2 style for h3 and use h3 instead
+ */
+.jarviswidget>header h3 {
+padding-left: 10px;
+float: left;
+height: 100%;
+width: auto;
+display: inline-block;
+font-size: 14px;
+position: relative;
+margin: 0;
+line-height: 34px;
+font-weight: 400;
+letter-spacing: 0;
+}
+
+/*
+ * DATA TABLES OVERRIDES
+ */
+.dataTable {
+    width: 100% !Important; /* otherwise the datatables clump up on firefox (and probably other browsers) and don't consume the full space */
+}
+.dataTables_empty {
+    display: none; /* don't show the "this table contains no data" row */
+}
+
+
+.bootbox-body {
+    word-wrap: break-word; /* good for long walks on the beach and the soothing music of Enya */
+}
+
+
+div.tooltip-inner {
+  word-wrap: break-word !important;
+}
+
+
+#donate {
+  margin-top: 7px;
+}
+
+#donateModal .radioBtn {
+  border: 1px solid #555;
+}
+
+@media only screen and (max-width : 630px) {
+  #donate {
+    display: none;
+  }
+}
+
+/** BOOTSTRAP OVERRIDES/EXTENSIONS **/
+/*dropdown submenus - from http://stackoverflow.com/a/18024991*/
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+    top:0;
+    left:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;
+    -moz-border-radius:0 6px 6px 6px;
+    border-radius:0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+    display:block;
+}
+.dropdown-submenu>.dropdown-toggle { /* custom added */
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.dropdown-submenu>a:after {
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#cccccc;
+    margin-top:5px;
+    margin-right:-10px;
+}
+.dropdown-submenu:hover>a:after {
+    border-left-color:#ffffff;
+}
+.dropdown-submenu.pull-left {
+    float:none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left:-100%;
+    margin-left:10px;
+    -webkit-border-radius:6px 0 6px 6px;
+    -moz-border-radius:6px 0 6px 6px;
+    border-radius:6px 0 6px 6px;
+}
+
+
+.prefFieldPercent {
+  text-align: right;
+}
+
+.note.advancedWarn {
+	text-align: center;
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body {
+	overflow: auto;
+}
+
+div#historyTabContent.tab-content > div#wid-id-txnHistory.tab-pane, div#historyTabContent.tab-content > div#wid-id-balHistory.tab-pane {
+	display: none !important;
+}
+
+div#historyTabContent.tab-content > div#wid-id-txnHistory.tab-pane.active, div#historyTabContent.tab-content > div#wid-id-balHistory.tab-pane.active {
+	display: block !important;
+}
+
+.jarviswidget header .nav-tabs>li.active>a {
+	background-color: #FAFAFA;
+}
+
+h1 span.localeTitle {
+  font-size: 24px !important;
+}
+
+.smart-form .checkbox input[name=autoDOGEPayEnabled] {
+  position: static !important;
+  margin-top: 7px;
+}
+
+div.showSupport {
+  text-align: right;
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+/* Notification boxes */
+#divSmallBoxes {
+  z-index: 1020; /* under the modal backdrop, but under the modal window */
+  /* use 1050 if we want it to be over the shaded modal backdrop */
+}
+
+.SmallBox {
+  color: #333;
+  border: 1px solid #333;
+}

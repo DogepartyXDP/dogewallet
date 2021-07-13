@@ -1,0 +1,101 @@
+upstream dogeblock_api_server {
+  server ${DEV_REMOTE_HOST}:${DEV_REMOTE_PORT};
+  keepalive 30;
+}
+server {
+  listen ${DEV_PORT} default_server;
+  server_name _;
+
+  access_log var/log/access.log;
+  error_log var/log/error.log;
+
+  # this has to be higher than we'd like otherwise, due to the create_support_case API call...
+  client_max_body_size 1m;
+
+
+  ###############
+  # BASE SITE SERVING (STATIC FILES)
+
+  location /_asset_img/ {
+    access_log off;
+    expires 1h;
+    alias /dogeblock_data/asset_img;
+  }
+  location /_t_asset_img/  {
+    access_log off;
+    expires 1h;
+    alias /dogeblock_data/asset_img.testnet/;
+  }
+  location /src  {
+    #For dev/testing (uses unminified resources)
+    expires off;
+    alias ${DEV_CODE_PATH}/src/;
+  }
+  location /dogewallet.conf.json  {
+    alias ${DEV_CODE_PATH}/dogewallet.conf.json;
+  }
+  location /  {
+    access_log off;
+    expires 1h;
+    root ${DEV_CODE_PATH}/build/;
+  }
+  #############
+
+  #####
+  # PRODUCTION
+  # PROXY TO DOGEWALLETD API REQUESTS (WSGI) - try to hit the cache in redis first
+  location ^~ /_api
+  {
+    #reject everything except GET, POST and OPTIONS
+    limit_except GET POST OPTIONS {
+      deny all;
+    }
+
+    # Send to app server if Redis could not answer the request
+    error_page 404 405 550 = @wsgi_api;
+  }
+  # PROXY TO DOGEBLOCK API BACKEND (WSGI)
+  location @wsgi_api {
+    include includes/dogeblock_api.inc;
+    rewrite ^/_api/?$ /api/?  break;
+    proxy_pass   http://dogeblock_api_server;
+  }
+  # PROXY TO DOGEBLOCK FEED BACKEND (socket.io)
+  location ^~ /_feed {
+    include includes/dogeblock_socketio.inc;
+    proxy_pass   http://dogeblock_api_server/socket.io;
+  }
+  # PROXY TO DOGEBLOCK CHAT BACKEND (socket.io)
+  location ^~ /_chat {
+    proxy_pass   http://dogeblock_api_server/socket.io;
+  }
+
+  #####
+  # TESTNET
+  # PROXY TO DOGEBLOCK API REQUESTS (WSGI) - try to hit the cache in redis first
+  location ^~ /_t_api
+  {
+    #reject everything except GET, POST and OPTIONS
+    limit_except GET POST OPTIONS {
+      deny all;
+    }
+
+    # Send to app server if Redis could not answer the request
+    error_page 404 405 550 = @t_wsgi_api;
+  }
+  # PROXY TO DOGEBLOCK API BACKEND (WSGI)
+  location @t_wsgi_api {
+    include includes/dogeblock_api.inc;
+    proxy_pass   https://dogeblock_api_server;
+  }
+  # PROXY TO DOGEBLOCK FEED BACKEND (socket.io)
+  location ^~ /_t_feed {
+    include includes/dogeblock_socketio.inc;
+    proxy_pass   http://dogeblock_api_server/socket.io;
+  }
+  # PROXY TO DOGEBLOCK CHAT BACKEND (socket.io)
+  location ^~ /_t_chat {
+    proxy_pass   http://dogeblock_api_server/socket.io;
+  }
+
+}

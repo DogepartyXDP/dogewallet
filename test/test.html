@@ -1,0 +1,30 @@
+<html>
+  <head>
+
+    <link rel="stylesheet" type="text/css" href="../src/vendors/mocha/mocha.css">
+    <script type="text/javascript" src="../src/vendors/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../src/vendors/mocha/mocha.js"></script>
+    <script type="text/javascript" src="../src/vendors/chai/chai.js"></script>
+    <script type="text/javascript">
+      mocha.setup('bdd');
+
+      window.DONT_INIT_PAGES = true; // disables the initIndex because the err that is thrown there upsets mocha
+    </script>
+    <script src="../build/js/dogewallet-deps-min.js"></script>
+    <script src="../build/js/dogewallet-min.js"></script>
+
+    <script type="text/javascript" src="fixtures.js"></script>
+    <script type="text/javascript" src="test.dogecore.js"></script>
+    <script type="text/javascript">
+      $(window).load(function() {
+        mocha.run();
+      });
+    </script>
+
+  </head>
+  <body>
+
+    <div id="mocha"></div>
+  
+  </body>
+</html>
