@@ -6,7 +6,7 @@ Introduction
 
 To develop on dogewallet locally, this folder contains configuration for a local nginx server that can proxy requests to a remote dogewallet instance.
 
-You may use your own remote dogewallet server or the public dogewallet server at wallet.dogewallet.io.
+You may use your own remote dogewallet server or the public dogewallet server at wallet.dogeparty.net.
 
 
 Usage
