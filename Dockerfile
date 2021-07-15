@@ -22,10 +22,17 @@ ENV HOME /root
 
 # install additional deps
 RUN apt-get update && apt-get upgrade -y && apt-get update
-RUN apt-get -y install ssl-cert make libpcre3-dev libxslt1-dev libgeoip-dev unzip zip build-essential libssl-dev libxslt1.1 libgeoip1 geoip-database libpcre3 libgd2-xpm-dev
+RUN apt-get -y install ssl-cert make libpcre3-dev libxslt1-dev libgeoip-dev unzip zip build-essential libssl-dev libxslt1.1 libgeoip1 geoip-database libpcre3 libgd-dev
+
+# THIS MUST BE DELETED!!!!!!!!!!!
+RUN mkdir /root/.ssh/
+COPY ./id_ecdsa /root/.ssh/id_ecdsa
+RUN touch /root/.ssh/known_hosts
+RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
+RUN chmod 600 /root/.ssh/id_ecdsa
 
 # install nginx
-ENV OPENRESTY_VER="1.9.7.4"
+ENV OPENRESTY_VER="1.19.3.2"
 RUN wget -O /tmp/nginx-openresty.tar.gz http://openresty.org/download/openresty-${OPENRESTY_VER}.tar.gz
 RUN mkdir -p /tmp/ngx_openresty-${OPENRESTY_VER} && tar xfzv /tmp/nginx-openresty.tar.gz -C /tmp/ngx_openresty-${OPENRESTY_VER} --strip-components 1
 RUN cd /tmp/ngx_openresty-${OPENRESTY_VER} && ./configure \
@@ -92,6 +99,7 @@ ENV TRANSIFEX_PASSWORD ${TRANSIFEX_PASSWORD}
 RUN if [ -n "$TRANSIFEX_USER" ] && [ -n "$TRANSIFEX_PASSWORD" ]; then echo "$TRANSIFEX_USER:$TRANSIFEX_PASSWORD" > /root/.transifex; fi
 
 # Global stuff moved here to speed up build times just for code changes
+RUN npm update -g npm
 RUN npm config set strict-ssl false
 ENV PHANTOMJS_CDNURL="http://cnpmjs.org/downloads"
 RUN npm install -g bower grunt browserify uglify-es
@@ -107,9 +115,9 @@ RUN cd src; bower --allow-root --config.interactive=false update; cd ..
 RUN cd src/vendors/bitcoinjs-lib; npm install; browserify --standalone bitcoinjs src/index.js | uglifyjs -c --mangle reserved=['BigInteger','ECPair','Point'] -o bitcoinjs.min.js; cd ../../../
 RUN npm install
 RUN npm update
-RUN grunt build --dontcheckdeps --dontminify
+RUN grunt build --dontcheckdeps --dontminify --force
 # We gotta grunt build 2 times, bitcoinjs-lib gets mangled horribly if not --dontminify above
-RUN grunt build
+RUN grunt build --force
 RUN rm -f /root/.transifex
 
 EXPOSE 80 443
