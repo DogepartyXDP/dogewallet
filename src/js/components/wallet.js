@@ -29,7 +29,8 @@ function WalletViewModel() {
   }
 
   self.networkBlockHeight.subscribe(function(newBlockIndex) {
-    self.isSegwitEnabled = newBlockIndex >= 557236 // should be synced up to "segwit_support" entry from dogeparty-lib/dogepartylib/protocol_changes.json
+    //self.isSegwitEnabled = newBlockIndex >= 557236 // should be synced up to "segwit_support" entry from dogeparty-lib/dogepartylib/protocol_changes.json
+    self.isSegwitEnabled = false // should be synced up to "segwit_support" entry from dogeparty-lib/dogepartylib/protocol_changes.json
 
     updateSegwitGenerationVisibility()
 
