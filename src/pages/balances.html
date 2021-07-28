@@ -643,10 +643,10 @@
       <div class="modal-body no-padding">
         <p class="formPadded">
           <span data-bind="locale: 'create_xdp_testnet'"></span><br/><br/>
-          <span data-bind="visible: 1 - dogeAlreadyBurned() > 0">
+          <span data-bind="visible: 1000000 - dogeAlreadyBurned() > 0">
             <b data-bind="locale: 'burn_up_to', localeArgs: maxPossibleBurn()"></b>
           </span>
-          <span data-bind="visible: 1 - dogeAlreadyBurned() <= 0">
+          <span data-bind="visible: 1000000 - dogeAlreadyBurned() <= 0">
             <b class="errorColor"><span data-bind="locale: 'already_burned'"></span></b>
           </span>
        </p>
