@@ -101,7 +101,7 @@ function testnetBurnDetermineEarned(blockHeight, burned) {
   burned = denormalizeQuantity(burned);
   var total_time = TESTNET_BURN_END - TESTNET_BURN_START;
   var partial_time = TESTNET_BURN_END - blockHeight;
-  var multiplier = 0.1 * (0.05 * (partial_time / total_time)); //will be approximate
+  var multiplier = 0.1 + (0.05 * (partial_time / total_time)); //will be approximate
   var earned = Decimal.round(new Decimal(burned).mul(multiplier), 8, Decimal.MidpointRounding.ToEven).toFloat();
   return normalizeQuantity(earned);
 }
