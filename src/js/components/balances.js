@@ -1876,7 +1876,7 @@ function TestnetBurnModalViewModel() {
       params: self
     }, {
       validator: function(val, self) {
-        return !(parseFloat(val) > 1 - self.dogeAlreadyBurned());
+        return !(parseFloat(val) > 1000000 - self.dogeAlreadyBurned());
       },
       message: i18n.t('you_can_only_burn'),
       params: self

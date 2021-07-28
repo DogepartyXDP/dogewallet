@@ -192,7 +192,7 @@
   "sweeping_x_assets_from_to": "Sweeping %s %s from %s to %s",
   "quantity_must_be_between_0_and_1": "Quantity entered must be between 1 and 1000000 DOGE.",
   "quantity_of_exceeds_balance": "The quantity of %s entered exceeds your available balance.",
-  "you_can_only_burn": "You can only burn <b>1 DOGE</b> total for any given address. Even over multiple burns, the total quantity must be less than <b>1 DOGE</b>.",
+  "you_can_only_burn": "You can only burn <b>1000000 DOGE</b> total for any given address. Even over multiple burns, the total quantity must be less than <b>1000000 DOGE</b>.",
   "you_will_be_burning": "You will be burning <b class='notoQuantityColor'>%s</b> <b class='notoAssetColor'>DOGE</b> for approximately <b class='notoQuantityColor'>%s</b> <b class='notoAssetColor'>XDP</b>.",
   "you_have_burned": "You have burned <b class='notoQuantityColor'>%s</b> <b class='notoAssetColor'>DOGE</b> for approximately <b class='notoQuantityColor'>%s</b> <b class='notoAssetColor'>XDP</b>.",
   "broadcast_transmitted": "Broadcast transmitted.",
