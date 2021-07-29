@@ -669,7 +669,7 @@
   "burn_doge_testnet": "Burn DOGE for XDP (Testnet Only)",
   "doge_to_burn": "DOGE to Burn",
   "after_burning": "After burning, you will have approximately <b class=\"buyColor\">%s XDP</b> created at this address.",
-  "create_xdp_testnet": "Create XDP on Testnet by \"burning\" your test DOGE. Please note that you can only burn up to <b>1 DOGE total</b> for any given address.",
+  "create_xdp_testnet": "Create XDP on Testnet by \"burning\" your test DOGE. Please note that you can only burn up to <b>1000000 DOGE total</b> for any given address.",
   "burn_up_to": "You may currently burn up to <span class=\"sellColor\">%s DOGE</span> from this address.",
   "already_burned": "You have already burned the maximum allowed DOGE from this address.",
   "welcome_p1": "Dogewallet created an address for you to get started. You can send and receive both dogecoin and Dogeparty tokens with it. To start using the wallet, simply send some DOGE or XDP to the address (just single click on the address string itself to select it, then copy that text, which you can then give to others or use to send funds to).",
