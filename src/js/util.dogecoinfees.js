@@ -9,15 +9,9 @@ var DWDogecoinFees = (function() {
   var defaultFees = [
     {
       offset: 0,
-      fee: 101,
+      fee: 1000,
       minDelay: 1,
-      maxDelay: 9999
-    },
-    {
-      offset: 1,
-      fee: 201,
-      minDelay: 1,
-      maxDelay: 1000
+      maxDelay: 6
     }
   ]
 

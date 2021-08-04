@@ -439,14 +439,15 @@
 
         <fieldset>
           <section><!-- fee section -->
-            <div class="row">
+            <div class="row" style="display:none">
               <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
               <div class="col col-sm-9">
                   <input name="feeSlider" data-bind="value: feeSlider, valueUpdate: 'input', attr: {max: feeSliderMax}" type="range" min="0" step="1">
               </div>
             </div>
             <div class="row">
-              <label class="control-label col col-sm-3">&nbsp;</label>
+              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>              
+			  <!--<label class="control-label col col-sm-3">&nbsp;</label>-->
               <div class="col col-sm-9">
                 <div class="fee-info" data-bind="fadeVisibleInOnly: normalizedBalRemainingIsSet">
                   <span class="formPaddedBot" data-bind="visible: transactionParamsAreValid, locale: feeDetailsLocaleName, localeArgs: feeDetailsLocaleArgs"></span>
@@ -457,7 +458,7 @@
             </div>
           </section>
 
-          <section><div class="row">
+          <!--<section><div class="row">
             <label class="control-label col col-sm-2" data-bind="locale: 'fee_option'"></label>
             <div class="col col-sm-5">
                 <label class="input">
@@ -474,7 +475,7 @@
                 </label>
                 <span class="invalid" data-bind="validationMessage: customFee"></span>
             </div>
-          </div></section>
+          </div></section>-->
 
         </fieldset></form>
         <p class="formPaddedBot" data-bind="fadeVisibleInOnly: normalizedBalRemainingIsSet, locale: 'after_sending', localeArgs: {0: dispNormalizedBalRemaining, 1: assetDisp}"></p>
@@ -785,14 +786,14 @@
           </div></section>
 
           <section><!-- fee section -->
-            <div class="row">
-              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+            <div class="row" style="display:none">
               <div class="col col-sm-9">
                   <input name="feeSlider" data-bind="value: feeSlider, valueUpdate: 'input', attr: {max: feeSliderMax}" type="range" min="0" step="1">
               </div>
             </div>
             <div class="row">
-              <label class="control-label col col-sm-3">&nbsp;</label>
+              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+              <!--<label class="control-label col col-sm-3">&nbsp;</label>-->
               <div class="col col-sm-9">
                 <div class="fee-info">
                   <span class="formPaddedBot" data-bind="visible: transactionParamsAreValid, locale: feeDetailsLocaleName, localeArgs: feeDetailsLocaleArgs"></span>
@@ -837,14 +838,14 @@
           </div></section>
 
           <section><!-- fee section -->
-            <div class="row">
-              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+            <div class="row" style="display:none">
               <div class="col col-sm-9">
                   <input name="feeSlider" data-bind="value: feeSlider, valueUpdate: 'input', attr: {max: feeSliderMax}" type="range" min="0" step="1">
               </div>
             </div>
             <div class="row">
-              <label class="control-label col col-sm-3">&nbsp;</label>
+              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+              <!--<label class="control-label col col-sm-3">&nbsp;</label>-->
               <div class="col col-sm-9">
                 <div class="fee-info">
                   <span class="formPaddedBot" data-bind="visible: transactionParamsAreValid, locale: feeDetailsLocaleName, localeArgs: feeDetailsLocaleArgs"></span>
@@ -887,14 +888,15 @@
           </div></section>
 
           <section><!-- fee section -->
-            <div class="row">
+            <div class="row" style="display:none">
               <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
               <div class="col col-sm-9">
                   <input name="feeSlider" data-bind="value: feeSlider, valueUpdate: 'input', attr: {max: feeSliderMax}" type="range" min="0" step="1">
               </div>
             </div>
             <div class="row">
-              <label class="control-label col col-sm-3">&nbsp;</label>
+              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+              <!--<label class="control-label col col-sm-3">&nbsp;</label>-->
               <div class="col col-sm-9">
                 <div class="fee-info">
                   <span class="formPaddedBot" data-bind="visible: transactionParamsAreValid, locale: feeDetailsLocaleName, localeArgs: feeDetailsLocaleArgs"></span>
@@ -941,14 +943,14 @@
           </div></section>
 
           <section><!-- fee section -->
-            <div class="row">
-              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+            <div class="row" style="display:none">
               <div class="col col-sm-9">
                   <input name="feeSlider" data-bind="value: feeSlider, valueUpdate: 'input', attr: {max: feeSliderMax}" type="range" min="0" step="1">
               </div>
             </div>
             <div class="row">
-              <label class="control-label col col-sm-3">&nbsp;</label>
+              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+              <!--<label class="control-label col col-sm-3">&nbsp;</label>-->
               <div class="col col-sm-9">
                 <div class="fee-info">
                   <span class="formPaddedBot" data-bind="visible: transactionParamsAreValid, locale: feeDetailsLocaleName, localeArgs: feeDetailsLocaleArgs"></span>
@@ -1013,14 +1015,14 @@
           </div></section>
 
           <section><!-- fee section -->
-            <div class="row">
-              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+            <div class="row" style="display:none">
               <div class="col col-sm-9">
                   <input name="feeSlider" data-bind="value: feeSlider, valueUpdate: 'input', attr: {max: feeSliderMax}" type="range" min="0" step="1">
               </div>
             </div>
             <div class="row">
-              <label class="control-label col col-sm-3">&nbsp;</label>
+              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+              <!--<label class="control-label col col-sm-3">&nbsp;</label>-->
               <div class="col col-sm-9">
                 <div class="fee-info">
                   <span class="formPaddedBot" data-bind="visible: transactionParamsAreValid, locale: feeDetailsLocaleName, localeArgs: feeDetailsLocaleArgs"></span>
@@ -1215,14 +1217,14 @@
           </div></section>
 
           <section><!-- fee section -->
-            <div class="row">
-              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+            <div class="row" style="display:none">
               <div class="col col-sm-9">
                   <input name="feeSlider" data-bind="value: feeSlider, valueUpdate: 'input', attr: {max: feeSliderMax}" type="range" min="0" step="1">
               </div>
             </div>
             <div class="row">
-              <label class="control-label col col-sm-3">&nbsp;</label>
+              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+              <!--<label class="control-label col col-sm-3">&nbsp;</label>-->
               <div class="col col-sm-9">
                 <div class="fee-info">
                   <span class="formPaddedBot" data-bind="visible: transactionParamsAreValid, locale: feeDetailsLocaleName, localeArgs: feeDetailsLocaleArgs"></span>
@@ -1371,14 +1373,14 @@
 
         <fieldset>
           <section><!-- fee section -->
-            <div class="row">
-              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+            <div class="row" style="display:none">
               <div class="col col-sm-9">
                   <input name="feeSlider" data-bind="value: feeSlider, valueUpdate: 'input', attr: {max: feeSliderMax}" type="range" min="0" step="1">
               </div>
             </div>
             <div class="row">
-              <label class="control-label col col-sm-3">&nbsp;</label>
+              <label class="control-label col col-sm-3" data-bind="locale: 'fee_option'"></label>
+              <!--<label class="control-label col col-sm-3">&nbsp;</label>-->
               <div class="col col-sm-9">
                 <div class="fee-info" data-bind="fadeVisibleInOnly: normalizedBalRemainingIsSet">
                   <span class="formPaddedBot" data-bind="visible: transactionParamsAreValid, locale: feeDetailsLocaleName, localeArgs: feeDetailsLocaleArgs"></span>

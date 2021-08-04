@@ -838,9 +838,9 @@
   "fee_option_custom": "Custom Fee",
   "enter_fee_option_custom": "Fee in Satoshi/Byte",
 
-  "fee_priority_details_no_wait": "Estimated wait: next block (%s Satoshis/Byte)",
-  "fee_priority_details_up_to": "Estimated wait: up to %s blocks (%s Satoshis/Byte)",
-  "fee_priority_details_between": "Estimated wait: between %s - %s blocks (%s Satoshis/Byte)",
+  "fee_priority_details_no_wait": "Estimated wait: next block (1 DOGE/kb)",
+  "fee_priority_details_up_to": "Estimated wait: up to %s blocks (1 DOGE/kb)",
+  "fee_priority_details_between": "Estimated wait: between %s - %s blocks (1 DOGE/kb)",
   "fee_details": "Transaction fee: %s DOGE ($%s USD)",
   "fee_details_with_doge_out": "Transaction fee: %s DOGE ($%s USD, %s fees and %s dust)",
   "fee_details_calculating": "Transaction fee: <span class=\"processing\">calculating...</span>",
