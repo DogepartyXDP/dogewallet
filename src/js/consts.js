@@ -10,8 +10,8 @@ var MAX_ADDRESSES = 20; //arbitrary (but will generate more on login if they hav
                         //additional addresses from being generated via the GUI)
 
 //Order expiration
-var ORDER_DEFAULT_EXPIRATION = 120960; //num blocks until expiration (~3 months)
-var ORDER_MAX_EXPIRATION = 120960; //max expiration for order
+var ORDER_DEFAULT_EXPIRATION = 129600; //num blocks until expiration (~3 months)
+var ORDER_MAX_EXPIRATION = 129600; //max expiration for order
 
 var STATS_MAX_NUM_TRANSACTIONS = 100; //max # transactions to show in the table
 var VIEW_PRICES_NUM_ASSET_PAIRS = 50; //show market info for this many pairs
