@@ -165,7 +165,8 @@ function AssetViewModel(props) {
                 quantity: 0,
                 asset: self.ASSET,
                 divisible: self.DIVISIBLE,
-                description: 'LOCK',
+				lock: true,
+                description: '',
                 transfer_destination: null
               },
               function(txHash, data, endpoint, addressType, armoryUTx) {

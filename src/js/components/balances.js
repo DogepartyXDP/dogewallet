@@ -1476,6 +1476,7 @@ function SweepModalViewModel() {
       quantity: 0,
       asset: selectedAsset.ASSET,
       divisible: selectedAsset.ASSET_INFO['divisible'],
+	  lock:false,
       description: selectedAsset.ASSET_INFO['description'],
       transfer_destination: self.destAddress(),
       encoding: 'auto',
