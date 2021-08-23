@@ -844,7 +844,7 @@ function CreateDispenserModalViewModel() {
     }],
     isValidCustomFeeIfSpecified: self
   });
-
+  
   self.feeOption.subscribeChanged(function(newValue, prevValue) {
     if(newValue !== 'custom') {
       self.customFee(null);
@@ -897,6 +897,18 @@ function CreateDispenserModalViewModel() {
     }
   });
 
+  self.give_quantity.subscribeChanged(function(newValue, prevValue){
+    self.customFee.valueHasMutated();
+  })
+
+  self.escrow_quantity.subscribeChanged(function(newValue, prevValue){
+    self.customFee.valueHasMutated();
+  })  
+
+  self.mainchainrate.subscribeChanged(function(newValue, prevValue){
+    self.customFee.valueHasMutated();
+  })
+  
   self.normalizedBalance = ko.computed(function() {
     if (self.address() === null || self.rawBalance() === null) return null;
     return normalizeQuantity(self.rawBalance(), self.divisible());
@@ -979,8 +991,8 @@ function CreateDispenserModalViewModel() {
       escrow_quantity: denormalizeQuantity(parseFloat(self.escrow_quantity()), self.divisible()),
       mainchainrate: denormalizeQuantity(parseFloat(self.mainchainrate()), true),
       status: 0, // 0 for open, 10 for close
-      _fee_option: 'custom',
-      _custom_fee: self.feeController.getCustomFee()
+      _fee_option: self.feeOption(),//'custom',
+      _custom_fee: 0 //self.feeController.getCustomFee()
     };
 
     return params
@@ -1006,11 +1018,12 @@ function CreateDispenserModalViewModel() {
     self.assetDisp(assetDisp);
     self.rawBalance(rawBalance);
     self.divisible(isDivisible);
+	self.feeOption("optimal")
     $('#sendFeeOption').select2("val", self.feeOption()); //hack
-    self.shown(true);
+	self.shown(true);
 
-    $('#MemoType').select2("val", self.memoType()); // hack to set select2 value
-    trackDialogShow('Send');
+    //$('#MemoType').select2("val", self.memoType()); // hack to set select2 value
+    //trackDialogShow('Send');
   }
 
   self.hide = function() {
