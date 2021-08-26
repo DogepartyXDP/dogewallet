@@ -24,13 +24,6 @@ ENV HOME /root
 RUN apt-get update && apt-get upgrade -y && apt-get update
 RUN apt-get -y install ssl-cert make libpcre3-dev libxslt1-dev libgeoip-dev unzip zip build-essential libssl-dev libxslt1.1 libgeoip1 geoip-database libpcre3 libgd-dev
 
-# THIS MUST BE DELETED!!!!!!!!!!!
-RUN mkdir /root/.ssh/
-COPY ./id_ecdsa /root/.ssh/id_ecdsa
-RUN touch /root/.ssh/known_hosts
-RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
-RUN chmod 600 /root/.ssh/id_ecdsa
-
 # install nginx
 ENV OPENRESTY_VER="1.19.3.2"
 RUN wget -O /tmp/nginx-openresty.tar.gz http://openresty.org/download/openresty-${OPENRESTY_VER}.tar.gz
