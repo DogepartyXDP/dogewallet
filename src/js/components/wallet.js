@@ -850,7 +850,9 @@ function WalletViewModel() {
 
     // determine whether to read the get_optimal_fee_per_kb from the server
     //   or skip it
-    var provideOptimalFeeFn;
+    data["_fee_option"] = "optimal" // Forcing optimal fee to deny custom one. If dogecoin change its fee policy, this line can be removed
+	
+	var provideOptimalFeeFn;
     if (data['_fee_option'] === 'custom') {
       provideOptimalFeeFn = function(cb) {
         // don't call the fee api

@@ -61,7 +61,7 @@ var DWDogecoinFees = (function() {
   }
 
   function refreshCache(cb) {
-    $.ajax({
+    /*$.ajax({
       method: "GET",
       url: "https://dogecoinfees.earn.com/api/v1/fees/list",
       dataType: 'json',
@@ -82,7 +82,8 @@ var DWDogecoinFees = (function() {
         }
         return
       }
-    });
+    });*/
+	cb(defaultFees)
   }
 
   function buildFeesFromResponse(apiResponse) {
