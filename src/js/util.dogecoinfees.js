@@ -83,6 +83,7 @@ var DWDogecoinFees = (function() {
         return
       }
     });*/
+	feesCache = defaultFees
 	cb(defaultFees)
   }
 
