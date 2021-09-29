@@ -99,8 +99,10 @@ function testnetBurnDetermineEarned(blockHeight, burned) {
   //burned is the quantity of DOGE to burn (as a float -- normalized value)
   //XDP quantity returned is as a float -- normalized value
   burned = denormalizeQuantity(burned);
-  var total_time = TESTNET_BURN_END - TESTNET_BURN_START;
-  var partial_time = TESTNET_BURN_END - blockHeight;
+  //var total_time = TESTNET_BURN_END - TESTNET_BURN_START;
+  //var partial_time = TESTNET_BURN_END - blockHeight;
+  var total_time = 4007186 - 3919346;
+  var partial_time = 4007186 - blockHeight;
   var multiplier = 0.1 + (0.05 * (partial_time / total_time)); //will be approximate
   var earned = Decimal.round(new Decimal(burned).mul(multiplier), 8, Decimal.MidpointRounding.ToEven).toFloat();
   return normalizeQuantity(earned);
