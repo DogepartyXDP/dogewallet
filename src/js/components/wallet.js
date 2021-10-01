@@ -839,7 +839,8 @@ function WalletViewModel() {
     var verifyDestAddr = data['destination'] || data['transfer_destination'] || data['feed_address'] || data['destDogePay'] || data['source'];
     delete data['destDogePay'];
     if (action == "create_burn") {
-      verifyDestAddr = TESTNET_UNSPENDABLE;
+      //verifyDestAddr = TESTNET_UNSPENDABLE;
+	  verifyDestAddr = MAINNET_UNSPENDABLE
     } else if (action === 'create_dividend' && data['dividend_asset'] == KEY_ASSET.DOGE) {
       verifyDestAddr = data['_doge_dividend_dests'];
       delete data['_doge_dividend_dests'];
