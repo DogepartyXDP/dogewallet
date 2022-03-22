@@ -47,6 +47,10 @@ function AssetViewModel(props) {
     if (self.isDOGE() || self.isXDP()) return null; //special value for DOGE and XDP
     return self.owner() == self.ADDRESS;
   }, self);
+  
+  self.canBeReset = ko.computed(function() {
+    return self.isMine() && (self.rawSupply() == self.rawBalance());
+  }, self);
 
   self.normalizedBalance = ko.computed(function() {
     if (self.rawBalance() === null) return null;
@@ -59,6 +63,10 @@ function AssetViewModel(props) {
 
   self.dispTotalIssued = ko.computed(function() {
     return smartFormat(self.normalizedTotalIssued());
+  }, self);
+
+  self.divisibleLabel = ko.computed(function() {
+    return (self.DIVISIBLE?i18n.t("is_divisible"):i18n.t("is_not_divisible"));
   }, self);
 
   self.assetType = ko.computed(function() {
@@ -183,6 +191,12 @@ function AssetViewModel(props) {
         }
       }
     });
+  };
+
+  self.reset_asset = function() {
+    assert(self.canBeReset());
+    if (!WALLET.canDoTransaction(self.ADDRESS)) return false;
+    RESET_ASSET_MODAL.show(self.ADDRESS, self.DIVISIBLE, self.SUPPLY, self);
   };
 
   self.changeDescription = function() {
