@@ -81,7 +81,7 @@ RUN mkdir -p /dogeblock_data/asset_img /dogeblock_data/asset_img.testnet
 # Install newest stable nodejs
 # (the `nodejs` package includes `npm`)
 RUN apt-get update && apt-get -y remove nodejs npm gyp
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 RUN apt-get update && apt-get -y install nodejs
 
 # Add transifex auth data if available
@@ -94,7 +94,7 @@ RUN if [ -n "$TRANSIFEX_USER" ] && [ -n "$TRANSIFEX_PASSWORD" ]; then echo "$TRA
 # Global stuff moved here to speed up build times just for code changes
 RUN npm update -g npm
 RUN npm config set strict-ssl false
-ENV PHANTOMJS_CDNURL="http://cnpmjs.org/downloads"
+ENV PHANTOMJS_CDNURL="https://bitbucket.org/ariya/phantomjs/downloads"
 RUN npm install -g bower grunt browserify uglify-es
 RUN npm install --unsafe-perm -g mocha-phantomjs
 
